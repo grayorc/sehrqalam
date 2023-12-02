@@ -1,0 +1,188 @@
+@font-face {
+  font-family: IRANSansX;
+  src: url("../fonts/IRANSansX.ttf");
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+}
+
+.back {
+  /* position: absolute; */
+  width: 80%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.07);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right-poly {
+  position: absolute;
+  width: 20%;
+  right: 0;
+}
+
+.left-poly {
+  position: absolute;
+  left: 0;
+  width: 30%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.56rem;
+  bottom: 5.87rem;
+}
+
+.signup {
+  color: #5754ff;
+  text-align: center;
+  font-family: IRANSansX;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.01313rem;
+  text-transform: uppercase;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.txt {
+  width: 90%;
+  color: #5754ff;
+  font-family: IRANSansX;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin: 2rem 2rem;
+}
+
+.inp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  align-items: center;
+  width: 100%;
+}
+.phone {
+  /* transform: translateX(-17rem); */
+  position: absolute;
+  left: 40%;
+  top: 13%;
+  @media (max-width: 768px) {
+    left: 20%;
+  }
+}
+.inp-2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  padding: 1rem 0 1.37rem 3.13rem;
+  color: gray;
+  text-align: right;
+  font-family: IRANSansX;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.015rem;
+  text-transform: uppercase;
+}
+
+.input {
+  background-color: inherit;
+  width: 25%;
+  height: 3.25rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #4abce1;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.09);
+  padding-right: 10px;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}
+
+.ques {
+  text-decoration: none;
+  color: #406d9e;
+  font-family: IRANSansX;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.01125rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+#btn {
+  border-radius: 0.625rem;
+  background: #5a35b5;
+  border: none;
+  color: #fefefe;
+  font-family: IRANSansX;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 7.75rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+#btn:hover {
+  box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.13);
+}
+.codebtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.87rem;
+}
+.ques-parent {
+  display: flex;
+  text-align: right;
+  justify-content: center;
+  width: 100%;
+}
