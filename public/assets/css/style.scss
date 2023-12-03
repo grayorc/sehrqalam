@@ -1,0 +1,600 @@
+@import "resetcss.scss";
+@import "writerEffect.scss";
+@import "costumerdetails.scss";
+
+@font-face {
+  font-family: IRANSansX;
+  src: url("../fonts/IRANSansX.ttf");
+}
+
+%align {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+%fontstyle {
+  color: #505050;
+  text-align: right;
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.01219rem;
+}
+
+.container {
+  width: 90%;
+  box-sizing: border-box;
+  margin: auto;
+  min-height: 100vh;
+  font-family: IRANSansX;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.logo {
+  img {
+    width: 2.625rem;
+    height: 2.3125rem;
+    margin-top: 0.38rem;
+    margin-right: 0.44rem;
+  }
+}
+
+.writer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 3rem;
+  align-items: center;
+
+
+ @media (max-width: 500px) {
+  flex-direction: column;
+  }
+}
+
+
+.w-2 {
+  width: 11.125rem;
+  height: 2.875rem;
+  border-radius: 1.875rem;
+  @extend %align;
+  align-items: center;
+  color: #fff;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.01313rem;
+  text-transform: uppercase;
+  border: 3px solid #cbbeff;
+  background: #cbbeff;
+  color: #5a35b5;
+  display: flex;
+  padding: 0 10px 0 10px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+
+}
+
+.active-page{
+  @extend%align;
+  width: 11.125rem;
+  height: 2.875rem;
+  border-radius: 1.875rem;
+  background: #5a35b5;
+  align-items: center;
+  color: #fff;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.01313rem;
+  text-transform: uppercase;
+  border: 3px solid #cbbeff;
+}
+
+.line1 {
+  display: flex;
+  height: 2px;
+  justify-content: center;
+  display: none;
+}
+.persons {
+  display: flex;
+  justify-content: start;
+  padding-right: 1rem;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1rem;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.translator {
+  padding-bottom: 1rem !important;
+}
+.active-translator{
+  display: none !important; 
+}
+
+.field1 {
+  width: 80%;
+
+  @media (min-width: 768px) {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    width: 100%;
+    justify-content: space-evenly;
+
+    label {
+      margin-top: 10px;
+    }
+
+    .add-btn button {
+      width: 100%;
+      height: 2.25rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.field2 {
+  width: 80%;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .select-menu {
+      display: none;
+    }
+  }
+}
+
+.field1 .name,
+.code {
+  @media (min-width: 768px) {
+    width: 35%;
+  }
+}
+
+.add-btn {
+  @media (min-width: 768px) {
+    width: 20%;
+  }
+}
+
+.n-3 {
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.name {
+  @media (min-width: 768px) {
+  }
+}
+
+.radio {
+  display: flex;
+  margin-top: 1.44rem;
+  justify-content: start;
+  color: #505050;
+  text-align: right;
+  font-family: IRANSansX;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.01313rem;
+  text-transform: uppercase;
+  margin-right: 2.19rem;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    .radio2 {
+      margin-right: 3rem !important;
+    }
+  }
+
+  .radio2 {
+    margin-right: 0;
+  }
+}
+
+.check input {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.fields {
+  border-radius: 0.4375rem;
+  border: 1px solid #c7c6c6;
+  background: #fff;
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media only screen and (min-width: 1025px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    align-items: normal;
+  }
+
+  .n-2 {
+    margin-top: 1.44rem;
+  }
+}
+
+.code {
+  margin-top: 1.06rem;
+}
+
+.inps {
+  // display: flex;
+  @extend%align;
+  flex-direction: column;
+  color: #505050;
+  text-align: right;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.01125rem;
+
+  input {
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid #adaaaa;
+    background: #fbfbfb;
+    outline: none;
+    font-family: IRANSansX;
+    margin-top: 10px;
+  }
+}
+
+.add-btn button {
+  width: 100%;
+  height: 2.25rem;
+  color: #fff;
+  font-family: IRANSansX;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.625rem;
+  background: #5a35b5;
+  box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.13);
+
+  margin-top: 1.38rem;
+  cursor: pointer;
+}
+
+.person {
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1.62rem;
+
+  .per-name,
+  .number {
+    color: #696969;
+    text-align: right;
+    font-family: IRANSansX;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.00938rem;
+    text-transform: uppercase;
+    margin: 1.56rem 0.5rem 1.31rem 0.81rem;
+  }
+}
+
+.line-dotted {
+  z-index: -1;
+  position: absolute;
+}
+
+#drop {
+  width: 100%;
+  height: 2.0625rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid #adaaaa;
+  @extend %fontstyle;
+  outline: none;
+  margin-top: 3.75rem;
+
+  option {
+    height: 2.0625rem;
+    border-radius: 0.25rem;
+    background: #f5f5f5;
+  }
+}
+
+@media (min-width: 768px) {
+  .ip1 {
+    width: 80%;
+  }
+
+  .name {
+    width: 80%;
+  }
+
+  .add {
+    width: 40%;
+    margin-bottom: 0;
+  }
+}
+
+.codemeli {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 30%;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.code-2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #fbfbfb;
+  text-align: right;
+
+  label {
+    margin-top: 10px;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .fullname {
+    @media (min-width: 768px) {
+      width: 30%;
+      align-items: center;
+      justify-content: space-between;
+      // margin-bottom: 2rem;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid #adaaaa;
+    background: #fbfbfb;
+    outline: none;
+    margin-top: 10px;
+    font-family: IRANSansX;
+  }
+
+  .btn-par {
+    @media (min-width: 768px) {
+      width: 20%;
+    }
+
+    .add {
+      border-radius: 0.625rem;
+      background: #5a35b5;
+      box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.13);
+      width: 100%;
+      height: 2.25rem;
+      border: none;
+      color: #fff;
+      font-family: IRANSansX;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 1.38rem;
+      margin-bottom: 1.8rem;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        width: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.ip2 {
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.line3 {
+  position: absolute;
+  z-index: -1;
+  // bottom: 0;
+}
+
+.check1 {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    accent-color: #5a35b5;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.check {
+  @media (min-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.checkboxes {
+  width: 100%;
+  // height: 18.875rem;
+  border-radius: 0.4375rem;
+  border: 1px solid #c7c6c6;
+  background: #fff;
+  margin-top: 1.12rem;
+
+  .options {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    // margin-right: 2.06rem;
+    accent-color: #5a35b5;
+  }
+
+  .box-item {
+    display: flex;
+    margin-top: 1.44rem;
+
+    p {
+      margin-right: 0.81rem;
+      color: #505050;
+      text-align: right;
+      font-family: IRANSansX;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.015rem;
+    }
+
+    img {
+      cursor: pointer;
+    }
+
+    a {
+      text-align: right;
+      font-family: IRANSansX;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.01125rem;
+      text-decoration-line: underline;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.checker {
+  background: #5a35b5;
+  border-radius: 0.125rem;
+  border: 1px solid #3d3f95;
+}
+
+.txt2 {
+  margin-top: 2.06rem;
+  width: 100%;
+  word-wrap: break-word;
+  @extend %fontstyle;
+  font-size: 0.875rem;
+}
+
+.prc {
+  color: #6c757d;
+  text-align: right;
+  font-family: IRANSansX;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.00938rem;
+  text-transform: uppercase;
+}
+
+.atlas {
+  margin-bottom: 1.5rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 2.81rem;
+  margin-top: 20px;
+
+  @media (max-width:450px) {
+    flex-direction: column-reverse;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 0.625rem;
+    color: #fff;
+    font-family: IRANSansX;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 450px) {
+      width: 100% !important;
+      margin-top: 13px;
+    }
+    cursor: pointer;
+    @media (max-width: 768px) {
+      width: 30%;
+    }
+  }
+
+  .exite {
+    border-radius: 0.625rem;
+    background: #feac25;
+    // margin: .12rem 2.06rem 4.62rem 2.81rem;
+  }
+
+  .next {
+    border-radius: 0.625rem;
+    background: linear-gradient(265deg, #5a35b5 0%, #632aed 96.25%);
+    box-shadow: 0px 4px 21px 0px rgba(61, 63, 149, 0.08);
+  }
+}

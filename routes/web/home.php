@@ -31,3 +31,7 @@ Route::get('/verify-account', [RegisterController::class, 'verify_account_get'])
 Route::post('/verify-account', [RegisterController::class, 'verify_account'])->name('verify.account');
 
 Route::post('/register_account', [RegisterController::class, 'register_account'])->name('regitser-user');
+
+Route::prefix('/profile')->middleware('auth')->group(function (){
+   Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index');
+});
