@@ -9,6 +9,7 @@
 
 <body>
 <form class="container">
+    @csrf
     <div class="logo">
         <img
             src="/assets/img/Screenshot 2023-04-22 013751_prev_ui 1.png"
@@ -59,17 +60,14 @@
                     />
                 </div>
                 <div class="add-btn">
-                    <button>افزودن</button>
+                    <button type="button" onclick="add()">افزودن</button>
                 </div>
             </div>
             <div class="persons">
-                <div class="person">
-                    <span class="per-name">علی رحیمی</span>
-                    <span class="number">092585856</span>
-                    <img src="/assets/img/x.png" alt="" />
-                </div>
             </div>
+            <div class="wr-inps">
 
+            </div>
             <div class="field1" id="translate-fields">
                 <div class="name inps">
                     <label for="name1" class="n-2">نام و نام خانوادگی مترجم</label>
@@ -256,5 +254,103 @@
 </form>
 
 <script src="/assets/js/main.js"></script>
+<script>
+    let addedIds = [];
+    function add() {
+        let name = document.getElementById("writer-name").value;
+        let national_code = document.getElementById("national-code-writer").value;
+
+        if (name.trim() === "" || national_code.trim() === "") {
+            return window.alert("نام یا کد ملی خالی است.");
+        }
+
+        if(!isValidIranianNationalId(national_code)){
+            return window.alert("کد ملی اشتباه است.")
+        }
+
+        // Check if the ID is already added
+        if (addedIds.includes(national_code)) {
+            alert("این کد ملی قبلا وارد شده است.");
+            return;
+        }
+
+        // Create input elements
+        let writerName = document.createElement("input");
+        writerName.setAttribute("type", "text");
+        writerName.setAttribute("name", "writerName[]");
+        writerName.setAttribute("value", name);
+        writerName.setAttribute("hidden", ""); // Hide the input element
+
+        let writerId = document.createElement("input");
+        writerId.setAttribute("type", "text");
+        writerId.setAttribute("name", "writerId[]");
+        writerId.setAttribute("value", national_code);
+        writerId.setAttribute("hidden", "");
+        document.querySelector(".wr-inps").appendChild(writerName);
+        document.querySelector(".wr-inps").appendChild(writerId);
+
+        addedIds.push(national_code);
+
+        let personContainer = document.createElement("div");
+        personContainer.className = "person";
+
+        let perNameSpan = document.createElement("span");
+        perNameSpan.className = "per-name";
+        perNameSpan.textContent = name;
+
+        let numberSpan = document.createElement("span");
+        numberSpan.className = "number";
+        numberSpan.textContent = national_code;
+
+        let deleteIcon = document.createElement("img");
+        deleteIcon.src = "/assets/img/x.png";
+        deleteIcon.alt = "";
+        deleteIcon.addEventListener("click", function () {
+            personContainer.remove();
+        });
+
+        personContainer.appendChild(perNameSpan);
+        personContainer.appendChild(numberSpan);
+        personContainer.appendChild(deleteIcon);
+
+        document.querySelector(".persons").appendChild(personContainer);
+    }
+
+    function remove(writerName, writerId) {
+        let r_name = document.getElementById(writerName);
+        let r_national_code = document.getElementById(writerId);
+
+        if (r_name) {
+            r_name.remove();
+            document.querySelector('input[name="writerName[]"][value="' + r_name.value + '"]').remove();
+        }
+
+        if (r_national_code) {
+            r_national_code.remove();
+            document.querySelector('input[name="writerId[]"][value="' + r_national_code.value + '"]').remove();
+        }
+    }
+
+    function isValidIranianNationalId(input) {
+        const pattern = /^[0-9]{10}$/;
+
+        if (!pattern.test(input)) {
+            return false;
+        }
+
+        if (input[9] === '0') {
+            return false;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < 9; i++) {
+            sum += parseInt(input[i]) * (10 - i);
+        }
+
+        const remainder = sum % 11;
+
+        return (remainder < 2 && input[9] == remainder) || (remainder >= 2 && input[9] == 11 - remainder);
+    }
+</script>
 </body>
 </html>

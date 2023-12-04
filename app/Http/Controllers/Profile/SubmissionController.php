@@ -21,7 +21,7 @@ class SubmissionController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
