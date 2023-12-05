@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\profile;
 
 use App\Http\Controllers\Controller;
+use App\Models\AgeCategory;
+use App\Models\Category;
+use App\Models\Ostan;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 
@@ -13,7 +16,17 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        return view('profile.submission.index');
+        $categories = Category::all();
+        $ageCategories= AgeCategory::all();
+        $ostans = Ostan::all();
+
+        return view('profile.submission.index',compact('categories','ageCategories','ostans'));
+    }
+
+    public function getCities($ostanId)
+    {
+        $cities = getCitiesByOstan($ostanId);
+        return response()->json($cities);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Shahr;
 use Illuminate\Support\Facades\Route;
 
 if(! function_exists('isActive')){
@@ -12,5 +13,12 @@ if(! function_exists('isActive')){
         }else{
             return '';
         }
+    }
+}
+
+if (!function_exists('getCitiesByOstan')) {
+    function getCitiesByOstan($ostanId)
+    {
+        return Shahr::where('ostan', $ostanId)->get();
     }
 }

@@ -67,7 +67,8 @@ return new class extends Migration
 
         Schema::create('age_category', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
+            $table->string('label');
         });
     }
 

@@ -35,3 +35,5 @@ Route::post('/register_account', [RegisterController::class, 'register_account']
 Route::prefix('/profile')->middleware('auth')->group(function (){
    Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index');
 });
+
+Route::get('/get-cities/{ostan}', '\App\Http\Controllers\profile\SubmissionController@getCities')->middleware('throttle:15,1');

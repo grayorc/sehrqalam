@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         (new PermissionSeeder)->run();
+        (new CategorySeeder)->run();
 //        Post::factory(10)->create();
 //        Product::factory(10)->create();
         // \App\Models\User::factory()->create([
