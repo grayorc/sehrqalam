@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 
 /*
@@ -34,6 +35,13 @@ Route::post('/register_account', [RegisterController::class, 'register_account']
 
 Route::prefix('/profile')->middleware('auth')->group(function (){
    Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index');
+   Route::post('/submission', '\App\Http\Controllers\Profile\SubmissionController@store')->name('submission.store');
 });
 
 Route::get('/get-cities/{ostan}', '\App\Http\Controllers\profile\SubmissionController@getCities')->middleware('throttle:15,1');
+
+Route::get('download/{user}/file',function ($file){
+    return Storage::download(request('path'));
+})->name('download.file')->middleware('signed');
+
+Route::get('/blank-download/private/{path}', '\App\Http\Controllers\HomeController@createLink')->middleware('throttle:15,1');

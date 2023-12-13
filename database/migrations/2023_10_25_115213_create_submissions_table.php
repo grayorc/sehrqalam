@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->BigInteger('price');
             $table->string('status');
             //book
             $table->string('title');

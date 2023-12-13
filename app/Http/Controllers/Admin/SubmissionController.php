@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Submission;
+use App\Models\User;
 use Illuminate\Http\Request;
+use mysql_xdevapi\TableUpdate;
 
 class SubmissionController extends Controller
 {
@@ -13,7 +15,10 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        return view('admin.Submission.all');
+
+        $submissions = Submission::query();
+        $submissions = $submissions->paginate(20);
+        return view('admin.Submission.all',compact('submissions'));
     }
 
     /**
@@ -53,7 +58,7 @@ class SubmissionController extends Controller
      */
     public function update(Request $request, Submission $bookRequest)
     {
-        //
+        Submission::update();
     }
 
     /**

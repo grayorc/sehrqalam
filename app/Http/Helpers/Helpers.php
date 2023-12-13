@@ -2,23 +2,25 @@
 
 use App\Models\Shahr;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
-if(! function_exists('isActive')){
-    function isAcvtive($key , $activeClassName = 'active'){
-        if(is_array($key)){
-            return in_array(Route::currentRouteName(), $key) ? $activeClassName : '';
-        }
-        if(Route::currentRoutename() == $key){
-            return $activeClassName ;
-        }else{
-            return '';
-        }
+function isAcvtive($key , $activeClassName = 'active'){
+    if(is_array($key)){
+        return in_array(Route::currentRouteName(), $key) ? $activeClassName : '';
+    }
+    if(Route::currentRoutename() == $key){
+        return $activeClassName ;
+    }else{
+        return '';
     }
 }
 
-if (!function_exists('getCitiesByOstan')) {
-    function getCitiesByOstan($ostanId)
-    {
-        return Shahr::where('ostan', $ostanId)->get();
-    }
+function getCitiesByOstan($ostanId)
+{
+    return Shahr::where('ostan', $ostanId)->get();
+}
+
+function createDownloadLink($path,$minuets = 10, $name = 'download.file'){
+    $path = "/private/" . $path;
+    return URL::temporarySignedRoute($name , now()->addMinute($minuets),['user' => auth()->user()->id , 'path' => $path]);
 }

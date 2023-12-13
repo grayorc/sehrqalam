@@ -8,14 +8,17 @@
 </head>
 
 <body>
-<form class="container">
+<form class="container" enctype="multipart/form-data" method="post" action="{{route('submission.store')}}">
     @csrf
     <div class="logo">
+
         <img
             src="/assets/img/Screenshot 2023-04-22 013751_prev_ui 1.png"
             alt=""
         />
     </div>
+    @include('admin.layouts.errors')
+
     <div class="writer">
         <div class="w-2 tab-page writer-details">مشخصات نویسنده</div>
         <img src="/assets/img/Line 224.png" alt=""/>
@@ -34,7 +37,6 @@
                     class="radio-inp"
                     name="book1"
                     id="book1"
-                    checked
                 />
                 <label for="book1">کتاب تالیفی</label>
             </div>
@@ -43,7 +45,7 @@
                 <label for="book2"> کتاب ترجمه شده </label>
             </div>
         </div>
-
+        <input type="checkbox" name="status" id="status" hidden>
         <div class="fields">
             <div class="field1">
                 <div class="name inps">
@@ -89,11 +91,6 @@
                 </div>
             </div>
             <div class="persons persons_tr" id="translator">
-                <div class="person">
-                    <span class="per-name">علی رحیمی</span>
-                    <span class="number">092585856</span>
-                    <img src="/assets/img/x.png" alt=""/>
-                </div>
             </div>
 
             <div class="tr-inps">
@@ -104,24 +101,25 @@
             <div class="options">
                 <div class="check">
                     <div class="box-item edit">
-                        <input type="checkbox"/>
+                        <input type="checkbox" name="virastary"/>
                         <p>ویراستاری(10000ریال )</p>
                     </div>
                     <div class="box-item cover">
-                        <input type="checkbox"/>
+                        <input type="checkbox" name="cover"/>
                         <p>طراحی جلد(10000ریال )</p>
                     </div>
                     <div class="box-item permit">
-                        <input type="checkbox"/>
+                        <input type="checkbox" name="permission"/>
                         <p>کسب مجوز(10000ریال )</p>
                     </div>
+
                 </div>
                 <span class="txt2">
               یک نمونه از قالب های زیر را برای صفحه آرایی انتخاب کنید.
             </span>
                 <div class="check1">
                     <div class="box-item">
-                        <input type="checkbox"/>
+                        <input type="checkbox" name="atlas"/>
                         <p>
                             <a href="">طرح اطلس</a> <span class="prc">(10000ریال )</span>
                         </p>
@@ -152,12 +150,12 @@
             <div class="title">
                 <div class="fields-item">
                     <label for="">عنوان کتاب *</label>
-                    <input type="text"/>
+                    <input type="text" name="bookTitle"/>
                 </div>
                 <div class="fields-item">
                     <label for="">عنوان فرعی کتاب</label>
 
-                    <input type="text"/>
+                    <input type="text" name="seconderyTitle"/>
                     <p class="small-txt">
                         عنوان فرعی کتاب، عنوانی است که به‌طور معمول زیر عنوان اصلی کتاب
                         قرار می‌گیرد و بیشتر جزئیات و موضوعات مربوط به کتاب را بیان
@@ -167,9 +165,10 @@
                 </div>
                 <div class="fields-item">
                     <label for="">عنوان لاتین کتاب</label>
-                    <input type="text"/>
+                    <input type="text" name="enTitle"/>
                 </div>
             </div>
+
             <div class="book-input-container">
                 <div class="book-type">
                     <label for="">نوع کتاب *</label>
@@ -179,7 +178,7 @@
                         @endforeach
                     </select>
                     <label for="" class="age-label">رده سنی مخاطب *</label>
-                    <select name="type" class="type age">
+                    <select name="age" class="type age">
                         @foreach($ageCategories as $ageCategory)
                             <option value="{{$ageCategory->id}}">{{$ageCategory->label}}</option>
                         @endforeach
@@ -189,14 +188,15 @@
                             لطفا چند ویژگی مورد نظر خود را برای طراحی جلد بنویسید. *
                         </label>
 
-                        <textarea name="" id="" class="text-area"></textarea>
+                        <textarea name="coverDiscretion" id="" class="text-area"></textarea>
                     </div>
                 </div>
                 <div class="file-upload">
                     <label for="">بارگذاری فایل *</label>
-                    <input type="file" class="file"/>
+                    <input type="file" class="file" name="file"/>
                     <img src="/assets/img/upload-igm.png" alt=""/>
                 </div>
+
             </div>
         </div>
         <div class="btns we-btns">
@@ -211,17 +211,19 @@
             <div class="identify-info">
                 <div class="info-item fullname">
                     <label for="">نام و نام خانوادگی *</label>
-                    <input type="text">
+                    <input type="text" name="fullName">
                 </div>
                 <div class="info-item meli-code">
                     <label for="">کد ملی *</label>
-                    <input type="text">
+                    <input type="text" name="nationalCode" id="کد ملی">
                 </div>
-                <div class="info-item phone-number">
+                <div class="info-item phone-number" name="phoneNumber">
                     <label for="">شماره همراه *</label>
-                    <input type="text">
+                    <input type="text" name="phoneNumber">
                 </div>
             </div>
+            <input type="submit">
+
             <div class="info-item living-info">
                 <div class="province info-item">
                     <label for="">استان *</label>
@@ -239,11 +241,11 @@
                 </div>
                 <div class="postalcode info-item">
                     <label for="">کد پستی *</label>
-                    <input type="text">
+                    <input type="text" name="zipCode">
                 </div>
             </div>
             <div class="rules">
-                <input type="checkbox" id="rule"/>
+                <input type="checkbox" id="rule" name="rule"/>
                 <label for="rule">قوانین و شرایط را مطالعه کرده و می پذیرم.</label>
             </div>
         </div>
@@ -252,6 +254,7 @@
             <button type="button" type="button" class="previous prev">مرحله قبلی</button>
             <button type="button" class="agree">موافقم</button>
         </div>
+        <button>submit</button>
     </div>
 </form>
 
@@ -334,10 +337,11 @@
             translatorName.setAttribute("hidden", ""); // Hide the input element
             let translatorId = document.createElement("input");
             translatorId.setAttribute("type", "text");
-            translatorId.setAttribute("name", "writerId[]");
+            translatorId.setAttribute("name", "translatorId[]");
             translatorId.setAttribute("value", national_code);
             translatorId.setAttribute("hidden", "");
             document.querySelector(".tr-inps").appendChild(translatorId);
+            document.querySelector(".tr-inps").appendChild(translatorName);
 
             addedIds_tr.push(national_code);
             let personContainer = document.createElement("div");

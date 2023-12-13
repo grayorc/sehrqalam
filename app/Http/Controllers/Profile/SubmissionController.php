@@ -7,7 +7,15 @@ use App\Models\AgeCategory;
 use App\Models\Category;
 use App\Models\Ostan;
 use App\Models\Submission;
+use App\Models\Translator;
+use App\Models\User;
+use App\Models\Writer;
+use App\Rules\NationalCode;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
 
 class SubmissionController extends Controller
 {
@@ -42,7 +50,169 @@ class SubmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $price = 0;
+        if(request()->has('status')) {
+            $data = $request->validate([
+                'writerId.*' => ['required', 'numeric'],
+                'writerName.*' => ['required', 'min:3'],
+//                'bookTitle' => ['required', 'min:3', 'max:128'],
+//                'seconderyTitle' => ['min:3', 'max:128'],
+//                'enTitle' => ['min:3', 'max:128', 'regex:/[pLs]+/'],
+//                'coverDiscretion' => ['required', 'min:3', 'max:128'],
+//                'file' => ['required', 'mimes:doc,docx', 'max:1048576'],
+//                'type' => ['required', 'numeric', 'exists:categories,id'],
+//                'age' => ['required', 'numeric', 'exists:age_category,id'],
+//                'fullName' => ['required'],
+//                'nationalCode' => ['required', 'numeric', (new NationalCode)],
+//                'phoneNumber' => ['required', 'numeric'],
+//                'rule' => ['required'],
+//                'zipCode' => ['required'],
+//                'ostan' => ['required', 'exists:ostan,id'],
+//                'shahr' => ['required', 'exists:shahr,id'],
+            ]);
+
+            $writerIds = request()->input('writerId.*');
+            $writerNames = request()->input('writerName.*');
+
+            $writers = array_combine($writerIds, $writerNames);
+            $path  = Storage::putFileAs('private', $request->file('file'),  Carbon::now()->format('Y-m-d_H-i-s').'_'.$request->file('file')->getClientOriginalName(), 'private');
+            $wordCont = wordCounter(Storage::path($path));
+            $price += 250 * $wordCont;
+
+            if(request()->has('cover')){
+                $price += 10000;
+            }
+            if(request()->has('permission')){
+                $price += 10000;
+            }
+            if(request()->has('virastary')){
+                $price += 10000;
+            }
+            if(request()->has('atlas')){
+                $price += 10000;
+            }
+
+
+            $submission = Submission::create([
+                'title' => $data['bookTitle'],
+                'user_id' => Auth::id(),
+                'name' => $data['fullName'],
+                'secondary_title' => $data['seconderyTitle'],
+                'english_title' => $data['enTitle'],
+                'category_id' => $data['type'],
+                'age_category_id' => $data['age'],
+                'word_number' => $wordCont,
+                'editing' => request()->has('virastary'),
+                'cover_design' => request()->has('atlas'),
+                'cover_detail' => request()->has('cover'),
+                'file_path' => $path,
+                'licence' => request()->has('permission'),
+                'code_meli' => $data['nationalCode'],
+                'code_posti' => $data['zipCode'],
+                'phone_number' => $data['phoneNumber'],
+                'shahr_id' => $data['shahr'],
+                'ostan_id' => $data['ostan'],
+                'status' => "در انتظار پرداخت"
+            ]);
+
+            $submission_id = $submission->id;
+
+            foreach ($writers as $id => $value) {
+                Writer::create([
+                    'submission_id' => $submission_id,
+                    'name' => $value,
+                    'code_meli' => $id
+                ]);
+            }
+        }else{
+            $data = $request->validate([
+                'writerId.*' => ['required', 'numeric'],
+                'writerName.*' => ['required', 'min:3'],
+                'translatorId.*' => ['required', 'numeric'],
+                'translatorName.*' => ['required', 'min:3'],
+//                'bookTitle' => ['required', 'min:3', 'max:128'],
+//                'seconderyTitle' => ['min:3', 'max:128'],
+//                'enTitle' => ['min:3', 'max:128', 'regex:/[pLs]+/'],
+//                'coverDiscretion' => ['required', 'min:3', 'max:128'],
+//                'file' => ['required', 'mimes:doc,docx', 'max:1048576'],
+//                'type' => ['required', 'numeric', 'exists:categories,id'],
+//                'age' => ['required', 'numeric', 'exists:age_category,id'],
+//                'fullName' => ['required'],
+//                'nationalCode' => ['required', 'numeric', (new NationalCode)],
+//                'phoneNumber' => ['required', 'numeric'],
+//                'rule' => ['required'],
+//                'zipCode' => ['required'],
+//                'ostan' => ['required', 'exists:ostan,id'],
+//                'shahr' => ['required', 'exists:shahr,id'],
+            ]);
+
+            $writerNames = request()->input('writerName.*');
+            $writers = $writerNames;
+
+            $translatorIds = request()->input('$translatorId.*');
+            $translatorNames = request()->input('$translatorName.*');
+            dd($translatorNames);
+
+            $translators = array_combine($translatorIds, $translatorNames);
+            $path  = Storage::putFileAs('private', $request->file('file'),  Carbon::now()->format('Y-m-d_H-i-s').'_'.$request->file('file')->getClientOriginalName(), 'private');
+            $wordCont = wordCounter(Storage::path($path));
+            $price += 250 * $wordCont;
+
+            if(request()->has('cover')){
+                $price += 10000;
+            }
+            if(request()->has('permission')){
+                $price += 10000;
+            }
+            if(request()->has('virastary')){
+                $price += 10000;
+            }
+            if(request()->has('atlas')){
+                $price += 10000;
+            }
+
+
+            $submission = Submission::create([
+                'title' => $data['bookTitle'],
+                'user_id' => Auth::id(),
+                'name' => $data['fullName'],
+                'secondary_title' => $data['seconderyTitle'],
+                'english_title' => $data['enTitle'],
+                'category_id' => $data['type'],
+                'age_category_id' => $data['age'],
+                'word_number' => $wordCont,
+                'editing' => request()->has('virastary'),
+                'cover_design' => request()->has('atlas'),
+                'cover_detail' => request()->has('cover'),
+                'file_path' => $path,
+                'licence' => request()->has('permission'),
+                'code_meli' => $data['nationalCode'],
+                'code_posti' => $data['zipCode'],
+                'phone_number' => $data['phoneNumber'],
+                'shahr_id' => $data['shahr'],
+                'ostan_id' => $data['ostan'],
+                'status' => "در انتظار پرداخت"
+            ]);
+
+            $submission_id = $submission->id;
+
+            foreach ($writers as $id => $value) {
+                Writer::create([
+                    'submission_id' => $submission_id,
+                    'name' => $value
+                ]);
+            }
+
+            foreach ($translators as $id => $value) {
+                Translator::create([
+                    'submission_id' => $submission_id,
+                    'name' => $value,
+                    'code_meli' => $id,
+                ]);
+            }
+        }
+
+
     }
 
     /**

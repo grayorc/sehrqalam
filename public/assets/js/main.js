@@ -7,7 +7,8 @@ let translatorFields = document.querySelector("#translate-fields");
 let perosns = document.querySelector("#translator");
 let national = document.querySelector("#national-code-writer");
 let national_label = document.querySelector("#national_writer_label");
-let status = false; //true if book is translated
+let status = false;
+let statinp = document.querySelector("#status")
 
 window.addEventListener("load", () => {
   translatorFields.classList.add("active-translator");
@@ -24,7 +25,7 @@ function toggleCheck() {
     //
     status = false;
     console.log(status);
-
+    statinp.checked = true;
   } else {
     translatorFields.classList.remove("active-translator");
     perosns.style.display = "flex";
@@ -33,7 +34,7 @@ function toggleCheck() {
     //
     status = true;
     console.log(status);
-
+    statinp.checked = false;
   }
 }
 

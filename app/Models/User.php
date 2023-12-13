@@ -18,6 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $table = 'users';
+
+
     public function isSuperuser()
     {
         return $this->is_superuser;

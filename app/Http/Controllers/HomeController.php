@@ -26,7 +26,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
+    public function createLink($path){
+        return redirect(createDownloadLink($path));
+//        return createDownloadLink($path);
+    }
     public function blog($slug){
         $post = Post::where('slug', 'LIKE', "%$slug%")->first();
         if(!$post){

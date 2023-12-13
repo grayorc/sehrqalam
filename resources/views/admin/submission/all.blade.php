@@ -1,7 +1,7 @@
-@component('admin.layouts.content' , ['title' => 'لیست کاربران'])
+@component('admin.layouts.content' , ['title' => 'لیست درخواست ها'])
     @slot('breadcrumb')
         <li class="breadcrumb-item"><a href="/admin">پنل مدیریت</a></li>
-        <li class="breadcrumb-item active">لیست کاربران</li>
+        <li class="breadcrumb-item active">همه درخواست ها</li>
     @endslot
 
     <div class="row">
@@ -21,8 +21,7 @@
                             </div>
                         </form>
                         <div class="btn-group-sm mr-1">
-                            <a href="{{ route('admin.users.create') }}" class="btn btn-info">ایجاد کاربر جدید</a>
-                            <a href="{{ request()->fullUrlWithQuery(['admin' => 1])  }}" class="btn btn-warning">کاربران مدیر</a>
+{{--                            <a href="{{ request()->fullUrlWithQuery(['admin' => 1])  }}" class="btn btn-warning">کاربران مدیر</a>--}}
                         </div>
                     </div>
                 </div>
@@ -31,33 +30,39 @@
                     <table class="table table-hover">
                         <tbody>
                         <tr>
-                            <th>آیدی کاربر</th>
-                            <th>نام کاربر</th>
+                            <th>شماره درخواست</th>
+                            <th>نام کتاب</th>
                             <th>شماره تلفن</th>
-                            <th>وضعیت کاربر</th>
-                            <th>اقدامات</th>
+                            <th>وضعیت درخواست</th>
+                            <th>لینک دانلود</th>
+{{--                            <th>اقدامات</th>--}}
                         </tr>
 
-                        @foreach($users as $user)
+                        @foreach($submissions as $submission)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->phone_number }}</td>
-                                @if($user->is_disabled)
-                                    <td><span class="badge badge-danger">غیرفعال</span></td>
-                                @else
-                                    <td><span class="badge badge-success">فعال</span></td>
-                                @endif
-                                <td class="d-flex">
-                                    <form action="{{ route('admin.users.destroy' , ['user' => $user->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-1">حذف</button>
-                                    </form>
-                                    @can('edit' , $user)
-                                        <a href="{{ route('admin.users.edit' , ['user' => $user->id]) }}" class="btn btn-sm btn-primary">ویرایش</a>
-                                    @endcan
-                                </td>
+                                <td>{{ $submission->id }}</td>
+                                <td>{{ $submission->title }}</td>
+                                <td>{{ $submission->phone_number }}</td>
+                                <td>{{ $submission->status }}</td>
+{{--                                <td><a href="/blank-download/{{$submission->file_path}}" id="link" name="link"><button  class="btn btn-sm btn-success ml-1" name="download" id="download">دانلود</button></a></td>--}}
+{{--                                <td class="d-flex">--}}
+{{--                                    <form action="{{ route('admin.submissions.edit' , ['submission' => $submission->id]) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('PUT')--}}
+{{--                                        <input value="در حال بررسی" name="status" hidden>--}}
+{{--                                        <button type="submit" class="btn btn-sm btn-info ml-1">درحال بررسی</button>--}}
+{{--                                    </form>--}}
+{{--                                    <form action="{{ route('admin.submissions.edit' , ['submission' => $submission->id,'status' => "درحال بررسی"]) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('PUT')--}}
+{{--                                        <button type="submit" class="btn btn-sm btn-info ml-1">ثبت شده</button>--}}
+{{--                                    </form>--}}
+{{--                                    <form action="{{ route('admin.submissions.edit' , ['submission' => $submission->id,'status' => "رد شده"]) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('PUT')--}}
+{{--                                        <button type="submit" class="btn btn-sm btn-info ml-1">رد شده</button>--}}
+{{--                                    </form>--}}
+{{--                                </td>--}}
                             </tr>
                         @endforeach
 
@@ -67,12 +72,11 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    {{ $users->render() }}
+                    {{ $submissions->render() }}
                 </div>
             </div>
             <!-- /.card -->
         </div>
     </div>
-
 @endcomponent
 
