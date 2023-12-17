@@ -1,0 +1,120 @@
+.cards-swiper {
+  width: 100%;
+  margin-top: 5rem;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .service {
+    color: #555b61;
+    font-family: IRANSansX;
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 166%; /* 3.735rem */
+    letter-spacing: -0.03375rem;
+    @media (max-width: 425px) {
+      font-size: 1.375rem;
+    }
+  }
+  .service-txt {
+    color: #7d7d7d;
+    font-family: Estedad;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: -0.01688rem;
+    @media (max-width: 425px) {
+      font-size: 0.625rem;
+    }
+  }
+}
+//swiper styles
+.hover-color {
+  color: white;
+}
+
+.card-contaiener {
+  box-shadow: -4px 13px 31px 0px rgba(0, 0, 0, 0.06);
+  transition: 400ms;
+
+  &:hover {
+    background: linear-gradient(194deg, #542fa6 5.06%, #8d11c8 91.8%);
+    transform: translateY(-2rem);
+    transition: 400ms;
+    .card-title div {
+      color: #fff !important;
+    }
+  }
+  height: 24rem;
+  margin-top: 10rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1.125rem;
+  box-shadow: -4px 13px 31px 0px rgba(0, 0, 0, 0.06);
+  .card-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-bottom: 6rem;
+
+    .cover-text {
+      padding: 0 20px 0 20px;
+    }
+  }
+
+  .card-img {
+    width: 100%;
+    img {
+      width: 65%;
+      position: absolute;
+      top: -15%;
+      z-index: 1;
+      right: 50%;
+      transform: translate(50%);
+      @media (max-width: 320px) {
+        width: 50%;
+        top: -17%;
+      }
+      @media (max-width: 768px) {
+      }
+    }
+  }
+  .cover {
+    color: #555b61;
+    text-align: center;
+    font-family: Sarbaz;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -0.0225rem;
+    @media (max-width: 320px) {
+      font-size: 1.375rem;
+    }
+  }
+  .cover-text {
+    color: #000;
+    text-align: center;
+    font-family: IRANSansX;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.015rem;
+    @media (max-width: 320px) {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.hover {
+  color: #fff;
+  font-weight: 900;
+}

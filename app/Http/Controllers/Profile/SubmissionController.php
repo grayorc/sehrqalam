@@ -51,6 +51,7 @@ class SubmissionController extends Controller
      */
     public function store(Request $request)
     {
+        //get all prices from fee table
         $fees = Fee::all();
         foreach ($fees as $fee){
             $prices[$fee->name] = $fee->price;
@@ -58,6 +59,7 @@ class SubmissionController extends Controller
 
         $price = 0;
         if(request()->has('status')) {
+            //for talifi books
             $data = $request->validate([
                 'writerId.*' => ['required', 'numeric'],
                 'writerName.*' => ['required', 'min:3'],
@@ -84,6 +86,7 @@ class SubmissionController extends Controller
 
             $path  = Storage::putFileAs('private', $request->file('file'),  Carbon::now()->format('Y-m-d_H-i-s').'_'.$request->file('file')->getClientOriginalName(), 'private');
             $wordCont = wordCounter(Storage::path($path));
+            //price calculator
             $price += $prices['word_fee'] * $wordCont;
 
             if(request()->has('cover')){
@@ -134,6 +137,7 @@ class SubmissionController extends Controller
                 ]);
             }
         }else{
+            //for translated books
             $data = $request->validate([
                 'writerName.*' => ['required', 'min:3'],
                 'translatorId.*' => ['required', 'numeric'],
@@ -165,6 +169,7 @@ class SubmissionController extends Controller
 
             $path  = Storage::putFileAs('private', $request->file('file'),  Carbon::now()->format('Y-m-d_H-i-s').'_'.$request->file('file')->getClientOriginalName(), 'private');
             $wordCont = wordCounter(Storage::path($path));
+            //price calculator
             $price += $prices['word_fee'] * $wordCont;
 
             if(request()->has('cover')){

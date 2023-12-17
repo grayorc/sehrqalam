@@ -32,7 +32,7 @@ Route::post('/verify-account', [RegisterController::class, 'verify_account'])->n
 Route::post('/register_account', [RegisterController::class, 'register_account'])->name('regitser-user');
 
 Route::prefix('/profile')->middleware('auth')->group(function (){
-   Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index');
+   Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index')->name('submission');
    Route::post('/submission', '\App\Http\Controllers\Profile\SubmissionController@store')->name('submission.store');
    Route::get('/receipt/{submission_id}', '\App\Http\Controllers\Profile\SubmissionController@receipt');
 });

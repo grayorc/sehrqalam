@@ -15,6 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        //for search
         $users = User::query();
         if($keyword = request('search')){
             $users->where('email' , 'LIKE', "%{$keyword}%")
@@ -28,10 +29,6 @@ class UserController extends Controller
 
         if(request('staff') == 1){
             $users->where('is_staff' , 1);
-        }
-
-        if(\request('new')){
-
         }
 
         $users = $users->paginate(20);

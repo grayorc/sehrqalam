@@ -1,0 +1,17 @@
+<svg width="77" height="81" viewBox="0 0 77 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Polygon 21" filter="url(#filter0_d_47_634)">
+<path d="M27.5 21.1547C28.7376 20.4402 30.2624 20.4402 31.5 21.1547L41.7894 27.0953C43.027 27.8098 43.7894 29.1303 43.7894 30.5594V42.4406C43.7894 43.8697 43.027 45.1902 41.7894 45.9047L31.5 51.8453C30.2624 52.5598 28.7376 52.5598 27.5 51.8453L17.2106 45.9047C15.973 45.1902 15.2106 43.8697 15.2106 42.4406V30.5594C15.2106 29.1303 15.973 27.8098 17.2106 27.0953L27.5 21.1547Z" fill="#DF83FF"/>
+</g>
+<defs>
+<filter id="filter0_d_47_634" x="0.210571" y="0.618774" width="76.5789" height="79.7625" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="9" dy="4"/>
+<feGaussianBlur stdDeviation="12"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_47_634"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_47_634" result="shape"/>
+</filter>
+</defs>
+</svg>

@@ -13,6 +13,7 @@ class FeeSeeder extends Seeder
      */
     public function run(): void
     {
+        //creating default values
         Fee::create([
             'name' => 'cover_design',
             'label'=>'طراحی جلد',

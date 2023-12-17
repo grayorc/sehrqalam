@@ -1,0 +1,231 @@
+.recent-blogs {
+  width: 100%;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .blogs-header {
+    text-align: center;
+    display: flex;
+    margin-bottom: 3rem;
+    h3 {
+      color: #555b61;
+      font-family: IRANSansX;
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 166%;
+      letter-spacing: -0.03375rem;
+      @media (max-width: 550px) {
+        font-size: 1.375rem;
+      }
+    }
+    p {
+      color: #7d7d7d;
+      font-family: IRANSansX;
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.01688rem;
+      text-transform: uppercase;
+      @media (max-width: 550px) {
+        font-size: 0.625rem;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}
+.article-cards {
+  border-radius: 1.125rem;
+  background: #fff;
+  box-shadow: -3px 4px 24px 0px rgba(0, 0, 0, 0.12);
+
+  // height: 18rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    .article-img {
+      width: 65%;
+    }
+  }
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  .article-text-container {
+    width: 50%;
+
+    .context h3 {
+      color: #000;
+      font-family: IRANSansX;
+      font-size: 1.375rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -0.02063rem;
+    }
+    .context {
+      margin-top: 1.2rem;
+      p {
+        color: #3c3c3c;
+        text-align: justify;
+        font-family: IRANSansX;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5rem; /* 0rem */
+        letter-spacing: -0.015rem;
+      margin-top: 1.2rem;
+
+      }
+      .more a {
+        color: #f44f00;
+        font-family: IRANSansX;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 184.5%; /* 1.845rem */
+        letter-spacing: -0.015rem;
+      }
+    }
+    .details {
+      margin-top: 1.5rem;
+      width: 100%;
+      // display: flex;
+      // justify-content: space-between;
+      .update {
+        color: #595959;
+        text-align: justify;
+        font-family: IRANSansX;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 184.5%; /* 1.61438rem */
+        letter-spacing: -0.01313rem;
+      }
+      .sort {
+        padding: 0.3125rem 0.75rem;
+        color: #595959;
+        font-family: IRANSansX;
+        font-size: 0.875rem;
+        font-weight: 400;
+        letter-spacing: -0.01313rem;
+        border-radius: 0.75rem;
+        background: rgba(127, 250, 83, 0.37);
+      }
+    }
+  }
+}
+.article-img {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  img {
+    width: 90%;
+    // height: 50%;
+  }
+}
+.sort-technology {
+  border-radius: 0.75rem;
+  background: rgba(250, 243, 83, 0.37);
+  display: inline-flex;
+  padding: 0.3125rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  color: #595959;
+  font-family: IRANSansX;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 184.5%; /* 1.61438rem */
+  letter-spacing: -0.01313rem;
+}
+.urban {
+  margin-top: 1.5rem;
+}
+
+//swiper styles
+.card-context {
+  padding: 1.5rem;
+}
+.swiper-blogs {
+  width: 100%;
+  margin-top: 4rem;
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .card-img {
+    img {
+      width: 100%;
+    }
+  }
+  .paragraph {
+    width: 100%;
+
+    p {
+      color: #3c3c3c;
+      text-align: justify;
+      font-family: IRANSansX;
+      font-size: 0.6rem;
+      font-weight: 400;
+      line-height: 202%; /* 1.01rem */
+      letter-spacing: -0.0075rem;
+    }
+    .span a {
+      color: #f44f00;
+      font-family: IRANSansX;
+      font-size: 0.6rem;
+      font-weight: 600;
+      line-height: 184.5%; /* 0.9225rem */
+      letter-spacing: -0.0075rem;
+    }
+  }
+  .details {
+    display: flex;
+    width: 110%;
+    justify-content: space-between;
+    align-items: center;
+    .update {
+      color: #595959;
+      text-align: justify;
+      font-family: IRANSansX;
+      font-size: 0.55rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 184.5%;
+      letter-spacing: -0.00656rem;
+    }
+    .sort {
+      display: flex;
+      width: 4rem;
+      padding: 0.125rem 0.6875rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.3125rem;
+      background: rgba(127, 250, 83, 0.37);
+      color: #595959;
+      text-align: justify;
+      font-family: IRANSansX;
+      font-size: 0.55rem;
+      font-weight: 400;
+      line-height: 184.5%;
+      letter-spacing: -0.00656rem;
+    }
+  }
+}
+.h3 h3 {
+  color: #000;
+  text-align: right;
+  font-family: IRANSansX;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.01313rem;
+}
