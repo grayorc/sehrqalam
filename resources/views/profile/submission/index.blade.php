@@ -17,7 +17,13 @@
             alt=""
         />
     </div>
-    @include('admin.layouts.errors')
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 
     <div class="writer">
         <div class="w-2 tab-page writer-details">مشخصات نویسنده</div>
@@ -37,6 +43,7 @@
                     class="radio-inp"
                     name="book1"
                     id="book1"
+                    checked
                 />
                 <label for="book1">کتاب تالیفی</label>
             </div>
@@ -222,7 +229,6 @@
                     <input type="text" name="phoneNumber">
                 </div>
             </div>
-            <input type="submit">
 
             <div class="info-item living-info">
                 <div class="province info-item">
@@ -252,9 +258,8 @@
         <div class="steps-btns">
             <button type="button" class="exite">خروج</button>
             <button type="button" type="button" class="previous prev">مرحله قبلی</button>
-            <button type="button" class="agree">موافقم</button>
+            <button type="submit" class="agree">موافقم</button>
         </div>
-        <button>submit</button>
     </div>
 </form>
 
@@ -289,10 +294,10 @@
                 return window.alert("نام خالی است.");
             }
             let writerName = document.createElement("input");
-            writerName.setAttribute("type", "text");
+            writerName.setAttribute("type", "hidden");
             writerName.setAttribute("name", "writerName[]");
             writerName.setAttribute("value", name);
-            writerName.setAttribute("hidden", ""); // Hide the input element
+            // writerName.setAttribute("hidden", "");
             document.querySelector(".wr-inps").appendChild(writerName);
             let personContainer = document.createElement("div");
             personContainer.className = "person";
@@ -322,21 +327,20 @@
             let name = document.getElementById("translator-name").value;
             let national_code = document.getElementById("national-code-translator").value;
 
-            if(nationalCodeVerify(national_code,"translator")){
-                return window.alert(nationalCodeVerify(national_code,"translator"));
-            }
+            // if(nationalCodeVerify(national_code,"translator")){
+            //     return window.alert(nationalCodeVerify(national_code,"translator"));
+            // }
 
             if (name.trim() === "") {
                 return window.alert("نام خالی است.");
             }
 
             let translatorName = document.createElement("input");
-            translatorName.setAttribute("type", "text");
+            translatorName.setAttribute("type", "hidden");
             translatorName.setAttribute("name", "translatorName[]");
             translatorName.setAttribute("value", name);
-            translatorName.setAttribute("hidden", ""); // Hide the input element
             let translatorId = document.createElement("input");
-            translatorId.setAttribute("type", "text");
+            translatorId.setAttribute("type", "hidden");
             translatorId.setAttribute("name", "translatorId[]");
             translatorId.setAttribute("value", national_code);
             translatorId.setAttribute("hidden", "");

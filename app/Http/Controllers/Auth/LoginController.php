@@ -52,10 +52,10 @@ class LoginController extends Controller
 
         $credentials = $request->only('phone_number', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('welcome');
+            return redirect()->route('home');
         }
 
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("home")->withErrors('اطلاعات وارد شده اشتباه است');
     }
 
     public function refreshCaptcha(){

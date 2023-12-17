@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">کاربران</h3>
+                    <h3 class="card-title">درخواست ها</h3>
 
                     <div class="card-tools d-flex">
                         <form action="">
@@ -32,6 +32,7 @@
                         <tr>
                             <th>شماره درخواست</th>
                             <th>نام کتاب</th>
+                            <th>نوع درخواست</th>
                             <th>شماره تلفن</th>
                             <th>وضعیت درخواست</th>
                             <th>لینک دانلود</th>
@@ -42,9 +43,10 @@
                             <tr>
                                 <td>{{ $submission->id }}</td>
                                 <td>{{ $submission->title }}</td>
+                                <td>{{ $submission->type }}</td>
                                 <td>{{ $submission->phone_number }}</td>
                                 <td>{{ $submission->status }}</td>
-{{--                                <td><a href="/blank-download/{{$submission->file_path}}" id="link" name="link"><button  class="btn btn-sm btn-success ml-1" name="download" id="download">دانلود</button></a></td>--}}
+                                <td><a href="/blank-download/{{$submission->file_path}}" id="link" name="link"><button  class="btn btn-sm btn-success ml-1" name="download" id="download">دانلود</button></a></td>
 {{--                                <td class="d-flex">--}}
 {{--                                    <form action="{{ route('admin.submissions.edit' , ['submission' => $submission->id]) }}" method="POST">--}}
 {{--                                        @csrf--}}

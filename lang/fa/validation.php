@@ -199,6 +199,8 @@ return [
         'ostan' => 'شهر',
         'shahr' => 'استان',
         'zipCode' => 'کد پستی',
+        'captcha'=>'کپچا',
+        'phone_number'=>'شماره تلفن'
     ],
 
 ];

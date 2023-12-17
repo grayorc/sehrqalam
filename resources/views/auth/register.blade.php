@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-{{Auth::loginUsingId(1)}}
+{{--{{Auth::loginUsingId(1)}}--}}
 
 <head>
     <meta charset="UTF-8" />
@@ -21,6 +21,9 @@
             <img class="left-poly" src="{{ asset('registerPage/svg/Polygon 65.png') }}" alt="" />
             <div class="head">
                 <h3 class="signup">ثبت نام</h3>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
                 <p class="txt">
                     برای ثبت نام در سایت، اطلاعات لازم را وارد کنید و با یک کلیک ثبت نام
                     کنید.

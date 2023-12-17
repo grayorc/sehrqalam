@@ -7,9 +7,12 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Kavenegar;
+use Kavenegar\Exceptions\ApiException;
+use Kavenegar\Exceptions\HttpException;
 
 class RegisterController extends Controller
 {
@@ -46,13 +49,13 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'phone_number' => ['required', 'string', 'unique:users'],
+            'phone_number' => ['required', 'unique:users'],
             'password' => ['required', 'string', 'min:4'],
         ]);
     }
@@ -60,12 +63,15 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
      */
     protected function register_account(Request $data)
     {
-        $this->validator($data);
+        $data = $data->validate([
+            'phone_number' => ['required', 'unique:users', 'numeric'],
+            'password' => ['required', 'string', 'min:4'],
+        ]);
+//        $this->validator($data->all());
         $token = mt_rand(10000, 99999);
         $this->send_sms_for($data['phone_number'], $token);
         User::create([
@@ -83,24 +89,12 @@ class RegisterController extends Controller
             $message = "کد تایید شما: " . $token . " می باشد.";
             $receptor = array($number);
             $result = Kavenegar::Send($sender, $receptor, $message);
-            if ($result) {
-                foreach ($result as $r) {
-                    echo "messageid = $r->messageid";
-                    echo "message = $r->message";
-                    echo "status = $r->status";
-                    echo "statustext = $r->statustext";
-                    echo "sender = $r->sender";
-                    echo "receptor = $r->receptor";
-                    echo "date = $r->date";
-                    echo "cost = $r->cost";
-                }
-            }
-        } catch (\Kavenegar\Exceptions\ApiException $e) {
+        } catch (ApiException $e) {
             // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
-            dd($e->errorMessage());
-        } catch (\Kavenegar\Exceptions\HttpException $e) {
+            return $e->errorMessage();
+        } catch (HttpException $e) {
             // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
-            dd($e->errorMessage());
+            return $e->errorMessage();
         }
     }
 
@@ -114,6 +108,7 @@ class RegisterController extends Controller
         $current_user = User::where('verification_token', '=', $request['code'])->firstOrfail();
         $current_user->is_disabled = 0;
         $current_user->update();
-        return redirect()->route('welcome');
+        Auth::login($current_user);
+        return redirect()->route('home');
     }
 }

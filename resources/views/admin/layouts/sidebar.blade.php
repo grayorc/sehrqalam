@@ -85,38 +85,38 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.permissions.index') }}" class="nav-link">
+                                <a href="{{ route('admin.submissions.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon text-info"></i>
                                     <p>همه درخواست ها</p>
                                 </a>
                             </li>
                         </ul>
 
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon text-warning"></i>
-                                    <p>درخواست های در انتظار</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon text-success"></i>
-                                    <p>درخواست های ثبت شده</p>
-                                </a>
-                            </li>
-                        </ul>
+{{--                        <ul class="nav nav-treeview">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('admin.roles.index') }}" class="nav-link">--}}
+{{--                                    <i class="fa fa-circle-o nav-icon text-warning"></i>--}}
+{{--                                    <p>درخواست های در انتظار</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                        <ul class="nav nav-treeview">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('admin.roles.index') }}" class="nav-link">--}}
+{{--                                    <i class="fa fa-circle-o nav-icon text-success"></i>--}}
+{{--                                    <p>درخواست های ثبت شده</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
 
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon text-danger"></i>
-                                    <p>درخواست های رد شده</p>
-                                </a>
-                            </li>
-                        </ul>
+{{--                        <ul class="nav nav-treeview">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('admin.roles.index') }}" class="nav-link">--}}
+{{--                                    <i class="fa fa-circle-o nav-icon text-danger"></i>--}}
+{{--                                    <p>درخواست های رد شده</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
 
 {{--                    <li class="nav-item has-treeview {{ isAcvtive(['admin.permissions.index','admin.permissions.create','admin.permissions.edit'], 'menu-open') }}">--}}
 {{--                        <a href="#" class="nav-link">--}}

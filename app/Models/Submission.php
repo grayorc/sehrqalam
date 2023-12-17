@@ -33,6 +33,7 @@ class Submission extends Model
         'ostan_id',
         'status',
         'price',
+        'type',
     ];
     public function writers()
     {

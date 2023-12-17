@@ -23,6 +23,9 @@
             <img class="left-poly" src="{{ asset('loginPage/svg/Polygon 65.png') }}" alt="">
             <div class="head">
                 <h3>ورود</h3>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
                 <p>لطفا نام کاربری و رمز عبور خود را وارد کنید.</p>
             </div>
             <form class="form" action="{{ route('login') }}" method="POST">

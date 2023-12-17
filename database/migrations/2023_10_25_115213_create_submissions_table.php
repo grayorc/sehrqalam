@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('status');
             //book
             $table->string('title');
+            $table->string('type');
             $table->string('secondary_title');
             $table->string('english_title');
             $table->unsignedBigInteger('category_id');

@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('/', function () {
-    return view('');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/refresh_captcha','\App\Http\Controllers\Auth\LoginController@refreshCaptcha')->name('refresh');
 Route::get('/blog/{slug}', '\App\Http\Controllers\HomeController@blog');
 Route::get('/blog', '\App\Http\Controllers\HomeController@blogIndex');
@@ -36,6 +34,7 @@ Route::post('/register_account', [RegisterController::class, 'register_account']
 Route::prefix('/profile')->middleware('auth')->group(function (){
    Route::get('/submission', '\App\Http\Controllers\Profile\SubmissionController@index');
    Route::post('/submission', '\App\Http\Controllers\Profile\SubmissionController@store')->name('submission.store');
+   Route::get('/receipt/{submission_id}', '\App\Http\Controllers\Profile\SubmissionController@receipt');
 });
 
 Route::get('/get-cities/{ostan}', '\App\Http\Controllers\profile\SubmissionController@getCities')->middleware('throttle:15,1');
