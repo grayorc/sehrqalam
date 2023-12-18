@@ -24,6 +24,7 @@ Route::get('/blog', '\App\Http\Controllers\HomeController@blogIndex');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
 Route::get('/verify-account', [RegisterController::class, 'verify_account_get'])->name('verify.account.get');
 

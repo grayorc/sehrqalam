@@ -109,6 +109,6 @@ class RegisterController extends Controller
         $current_user->is_disabled = 0;
         $current_user->update();
         Auth::login($current_user);
-        return redirect()->route('home');
+        return redirect()->route('welcome');
     }
 }

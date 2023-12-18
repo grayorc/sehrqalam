@@ -162,7 +162,7 @@
                     @endguest
                     @auth
                     <div class="entry">
-                        <div><a href="{{route('profile')}}"><button>پنل کاربری</button></a></div>
+                        <div><a href="{{route('submission')}}"><button>پنل کاربری</button></a></div>
                         <form action="{{route('logout')}}" method="post">
                             @csrf
                         <div><a href=""><button style="background: #ef233c">خروج</button></a></div>
