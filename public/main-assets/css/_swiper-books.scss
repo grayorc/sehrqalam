@@ -28,6 +28,7 @@
     }
     .book-text {
       color: #7d7d7d;
+      text-align: center;
       font-family: Estedad;
       font-size: 1.125rem;
       font-style: normal;
@@ -38,6 +39,12 @@
     }
   }
 }
+
+
+#swiper-second{
+    padding-top: 5rem;
+}
+
 .swiper-container {
   margin-top: 5rem;
 }
@@ -52,7 +59,7 @@
   height: 100%;
   .pic {
     position: relative;
-    transform: translateY(4.5rem);
+    transform: translateY(7.7rem);
     transition: 300ms;
     width: 14.375rem;
     height: 22rem;
@@ -63,6 +70,13 @@
     flex-direction: column;
     justify-content: space-between;
     // background: linear-gradient(0deg, #1b1a1a 0%, rgba(0, 0, 0, 0) 97.83%);
+
+    &:hover{
+        transform: translateY(2.3rem);
+
+
+    }
+
     .heart {
       z-index: 1;
       width: 20%;
@@ -71,6 +85,7 @@
       justify-content: start;
     }
     .like {
+        cursor: pointer;
       display: flex;
       align-items: center;
       border: none;
@@ -85,6 +100,8 @@
       margin-top: 0.6rem;
     }
   }
+
+
 
   .pic-footer {
     display: flex;
@@ -166,6 +183,7 @@
     background: #3d3f95;
     box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.13);
     border: none;
+    margin-right: 5px;
     // @media (max-width: 768px) {
     //   width: 20%;
     //   height: 1.7rem;
@@ -173,10 +191,7 @@
     // }
   }
 }
-.pic:hover {
-  transition: 300ms;
-  transform: translateY(-1rem);
-}
 .left-svgs {
   position: relative;
 }
+

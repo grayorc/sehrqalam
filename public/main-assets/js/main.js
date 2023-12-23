@@ -1,6 +1,5 @@
 
 let swiper = new Swiper("#swiper-first", {
-  loop: true,
   // slidesPerView: 4,
   spaceBetween: 0,
   breakpoints: {
@@ -20,12 +19,12 @@ let swiper = new Swiper("#swiper-first", {
     },
     // when window width is >= 640px
     640: {
-      slidesPerView: 3,
-      spaceBetween: 20,
+      slidesPerView: 2,
+      spaceBetween: 10,
     },
     768: {
-      slidesPerView: 4,
-      spaceBetween: 50,
+      slidesPerView: 3,
+      spaceBetween: 10,
     },
   },
   // // If we need pagination
@@ -87,12 +86,14 @@ const swiper2 = new Swiper("#swiper-second", {
   },
   pagination: {
     el: ".swiper-pagination",
+    clickable: true
   },
 
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
 });
 
 // blog-swiper
@@ -101,11 +102,11 @@ const swiper3 = new Swiper(".swiper4", {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 50,
+      spaceBetween: 0,
     },
     425: {
       slidesPerView: 2,
-      spaceBetween: 50,
+      spaceBetween: 0,
     },
   },
 });

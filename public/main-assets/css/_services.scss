@@ -1,7 +1,21 @@
 .cards-swiper {
   width: 100%;
   margin-top: 5rem;
+
 }
+
+
+#swiper-first{
+    .swiper-wrapper{
+        padding-bottom: 40px;
+        display: flex;
+        padding-right: 15px;
+    }
+}
+
+
+
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -20,6 +34,7 @@
   .service-txt {
     color: #7d7d7d;
     font-family: Estedad;
+    text-align: center;
     font-size: 1.125rem;
     font-weight: 500;
     letter-spacing: -0.01688rem;
@@ -47,7 +62,7 @@
   }
   height: 24rem;
   margin-top: 10rem;
-  width: 100%;
+  width: 92%;
   align-items: center;
   display: flex;
   align-items: center;

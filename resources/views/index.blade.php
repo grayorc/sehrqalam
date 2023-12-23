@@ -556,8 +556,8 @@
                 </div>
                 <div class="swiper-pagination pagin"></div>
 
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                {{-- <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> --}}
 
                 <!-- <div class="swiper-scrollbar"></div> -->
             </div>
@@ -634,49 +634,51 @@
         </div>
 </div>
 
-<div class="article-cards">
-    <div class="article-text-container">
-        <div class="context">
-            <h3>فضای مجازی، جاده‌ای بی‌انتها از ارتباطات و امکانات</h3>
-            <p>
-                فضای مجازی، جایی است که مرزهای جغرافیایی را از بین می‌برد و
-                افراد را به هم متصل می‌کند. در این فضا، می‌توانیم با افرادی از
-                سراسر جهان در ارتباط باشیم و ایده‌ها، دانش و تجربیاتمان را به
-                اشتراک بگذاریم. اما در کنار مزایایش، باید همواره به مسائل امنیتی
-                و حفظ حریم خصوصی دقت کنیم. به همین دلیل، مهم است که در استفاده
-                از فضای مجازی هوشمندانه عمل کنیم و از منابع معتبر استفاده کنیم.
-                <span class="more"><a href="">ادامه مطلب</a></span>
-            </p>
+<div class="blogs-container">
+    <div class="article-cards">
+        <div class="article-text-container">
+            <div class="context">
+                <h3>فضای مجازی، جاده‌ای بی‌انتها از ارتباطات و امکانات</h3>
+                <p>
+                    فضای مجازی، جایی است که مرزهای جغرافیایی را از بین می‌برد و
+                    افراد را به هم متصل می‌کند. در این فضا، می‌توانیم با افرادی از
+                    سراسر جهان در ارتباط باشیم و ایده‌ها، دانش و تجربیاتمان را به
+                    اشتراک بگذاریم. اما در کنار مزایایش، باید همواره به مسائل امنیتی
+                    و حفظ حریم خصوصی دقت کنیم. به همین دلیل، مهم است که در استفاده
+                    از فضای مجازی هوشمندانه عمل کنیم و از منابع معتبر استفاده کنیم.
+                    <span class="more"><a href="">ادامه مطلب</a></span>
+                </p>
+            </div>
+            <div class="details">
+                <span class="update">آخرین بروزرسانی 2 روز پیش</span>
+                <span class="sort">اخبار و مقاله</span>
+            </div>
         </div>
-        <div class="details">
-            <span class="update">آخرین بروزرسانی 2 روز پیش</span>
-            <span class="sort">اخبار و مقاله</span>
+        <div class="article-img">
+            <img src="./main-assets/img/article13.png" alt="" />
         </div>
     </div>
-    <div class="article-img">
-        <img src="./main-assets/img/article13.png" alt="" />
-    </div>
-</div>
-<div class="article-cards">
-    <div class="article-img">
-        <img src="./main-assets/img/article-img2.png" alt="" />
-    </div>
-    <div class="article-text-container">
-        <div class="context urban">
-            <h3>تحولات شهری در عصر مدرن و تاثیر آن بر زندگی انسان ها</h3>
-            <p>
-                شهر، جایی است که تنوع فرهنگی، هیجان و زیبایی‌های خاص خود را در
-                بر دارد. همیشه می‌توان در آن جا چیز جدیدی برای کشف کرد و
-                تجربه‌های جذابی را پیدا کرد. شهر، محلی است که انسان‌ها با هم در
-                آن زندگی می‌کنند و از تعاملات اجتماعی و فرصت‌های شغلی بهره‌مند
-                می‌شوند. این مکان‌ها پر از انرژی و روحیه هستند و همیشه به ما
-                یادآور می‌شوند که زندگی ما بی‌کران و پر از امکانات است.
-                <span class="more"><a href="">ادامه مطلب</a></span>
-            </p>
+    <div class="article-cards">
+        <div class="article-img">
+            <img src="./main-assets/img/article-img2.png" alt="" />
         </div>
-        <div class="details">
-            <span class="update">آخرین بروزرسانی 2 روز پیش</span>
-            <span class="sort-technology">تکنولوژی</span>
+        <div class="article-text-container">
+            <div class="context urban">
+                <h3>تحولات شهری در عصر مدرن و تاثیر آن بر زندگی انسان ها</h3>
+                <p>
+                    شهر، جایی است که تنوع فرهنگی، هیجان و زیبایی‌های خاص خود را در
+                    بر دارد. همیشه می‌توان در آن جا چیز جدیدی برای کشف کرد و
+                    تجربه‌های جذابی را پیدا کرد. شهر، محلی است که انسان‌ها با هم در
+                    آن زندگی می‌کنند و از تعاملات اجتماعی و فرصت‌های شغلی بهره‌مند
+                    می‌شوند. این مکان‌ها پر از انرژی و روحیه هستند و همیشه به ما
+                    یادآور می‌شوند که زندگی ما بی‌کران و پر از امکانات است.
+                    <span class="more"><a href="">ادامه مطلب</a></span>
+                </p>
+            </div>
+            <div class="details">
+                <span class="update">آخرین بروزرسانی 2 روز پیش</span>
+                <span class="sort-technology">تکنولوژی</span>
+            </div>
         </div>
     </div>
 </div>
