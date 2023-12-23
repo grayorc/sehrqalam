@@ -54,7 +54,6 @@
                             <div class="captcha-box" id="d-refresh">
                                 <span class="capcha-span">{!! captcha_img('math') !!}</span>
                             </div>
-                                <button type="button" class="btn-refresh">refresh</button>
                         </div>
 
                 </div>
@@ -73,7 +72,7 @@
     <script src="{{ asset('loginPage/js/script.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $ ('.btn-refresh') .click (function () {
+        $ ('#d-refresh') .click (function () {
             $.ajax({
                 type: 'GET',
                 url: '{{ url ('/refresh_captcha') }}',

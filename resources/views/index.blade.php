@@ -156,7 +156,7 @@
                 <div class="signup-options">
                     @guest
                     <div class="entry">
-                        <div><a href="{{route('register')}}"><button>ثبت نام</button></a></div>
+                        <div><button onclick="location.href = '{{route('register')}}'">ثبت نام</button></div>
                         <div><a href="{{route('login')}}">ورود</a></div>
                     </div>
                     @endguest
