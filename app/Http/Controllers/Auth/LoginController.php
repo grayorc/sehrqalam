@@ -45,7 +45,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'phone_number' => 'required',
+            'phone_number' => ['required','numeric','regex:/(09)[0-9]{9}/'],
             'password' => 'required',
             'captcha' => ['required','captcha'],
         ]);
@@ -55,7 +55,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect("home")->withErrors('اطلاعات وارد شده اشتباه است');
+        return redirect("login")->withErrors('اطلاعات وارد شده اشتباه است');
     }
 
     public function refreshCaptcha(){
