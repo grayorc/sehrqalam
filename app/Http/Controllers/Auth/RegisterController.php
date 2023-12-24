@@ -68,7 +68,7 @@ class RegisterController extends Controller
     protected function register_account(Request $data)
     {
         $data = $data->validate([
-            'phone_number' => ['required', 'unique:users', 'numeric'],
+            'phone_number' => ['required', 'unique:users', 'numeric','regex:/(09)[0-9]{9}/'],
             'password' => ['required', 'string', 'min:4'],
         ]);
 //        $this->validator($data->all());

@@ -112,3 +112,4 @@ function activedPage(active) {
 
 book1.addEventListener("change", toggleCheck);
 book2.addEventListener("change", toggleCheck);
+book2.addEventListener("change", toggleCheck);

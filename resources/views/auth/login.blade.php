@@ -32,7 +32,7 @@
                 @method('POST')
                 @csrf
                 <div class="inps">
-                    <input type="text" id="phone_number" name="phone_number" placeholder="نام کاربری">
+                    <input type="text" id="phone_number" name="phone_number" placeholder="نام کاربری" pattern="09(0[1-2]|1[0-9]|3[0-9]|2[0-1])-?[0-9]{3}-?[0-9]{4}">
                     <div class="fill">
                         <input class="pass" id="password" name="password" type="password" placeholder="رمز عبور">
                         <svg class="eye  closeeye " xmlns="http://www.w3.org/2000/svg" width="15" height="14"

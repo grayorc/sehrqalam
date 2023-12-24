@@ -99,46 +99,49 @@
             </div>
             <div class="persons persons_tr" id="translator">
             </div>
-
+{{--don't change--}}
             <div class="tr-inps">
 
             </div>
+{{--//////--}}
         </div>
         <div class="checkboxes">
             <div class="options">
                 <div class="check">
                     <div class="box-item edit">
-                        <input type="checkbox" name="virastary"/>
-                        <p>ویراستاری(10000ریال )</p>
+                        <input type="checkbox" id="edition" name="virastary"/>
+                        <label for="edition">ویراستاری(10000ریال )</label>
                     </div>
                     <div class="box-item cover">
-                        <input type="checkbox" name="cover"/>
-                        <p>طراحی جلد(10000ریال )</p>
+                        <input type="checkbox" id="cover-design" name="cover"/>
+                        <p></p>
+                        <label for="cover-design">طراحی جلد(10000ریال )</label>
                     </div>
                     <div class="box-item permit">
-                        <input type="checkbox" name="permission"/>
-                        <p>کسب مجوز(10000ریال )</p>
+                        <input type="checkbox" id="permition" name="permission"/>
+                        <label for="permition">کسب مجوز(10000ریال )</label>
                     </div>
 
                 </div>
-                <span class="txt2">
-              یک نمونه از قالب های زیر را برای صفحه آرایی انتخاب کنید.
-            </span>
+                <div class="txt2">
+                    <p>یک نمونه از قالب های زیر را برای صفحه آرایی انتخاب کنید.</p>
+                    <span class="question">?</span>
+                </div>
                 <div class="check1">
                     <div class="box-item">
-                        <input type="checkbox" name="atlas"/>
+                        <input type="radio" name="atlas"/>
                         <p>
                             <a href="">طرح اطلس</a> <span class="prc">(10000ریال )</span>
                         </p>
                     </div>
                     <div class="box-item">
-                        <input type="checkbox"/>
+                        <input type="radio" name="atlas"/>
                         <p>
                             <a href="">طرح اطلس</a> <span class="prc">(10000ریال )</span>
                         </p>
                     </div>
                     <div class="box-item atlas">
-                        <input type="checkbox"/>
+                        <input type="radio" name="atlas" />
                         <p>
                             <a href="">طرح اطلس</a> <span class="prc">(10000ریال )</span>
                         </p>
@@ -156,8 +159,8 @@
         <div class="fields">
             <div class="title">
                 <div class="fields-item">
-                    <label for="">عنوان کتاب *</label>
-                    <input type="text" name="bookTitle"/>
+                    <label for="">عنوان کتاب <span class="label-star">*</span></label>
+                    <input type="text" name="bookTitle" required/>
                 </div>
                 <div class="fields-item">
                     <label for="">عنوان فرعی کتاب</label>
@@ -178,30 +181,31 @@
 
             <div class="book-input-container">
                 <div class="book-type">
-                    <label for="">نوع کتاب *</label>
+                    <label for="">نوع کتاب <span class="label-star">*</span></label>
                     <select name="type" class="type">
+                        {{--get categories from databes--}}
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->label}}</option>
                         @endforeach
                     </select>
-                    <label for="" class="age-label">رده سنی مخاطب *</label>
+                    <label for="" class="age-label">رده سنی مخاطب <span class="label-star">*</span></label>
                     <select name="age" class="type age">
+                        {{--get ageCategories from databes--}}
                         @foreach($ageCategories as $ageCategory)
                             <option value="{{$ageCategory->id}}">{{$ageCategory->label}}</option>
                         @endforeach
                     </select>
                     <div class="area">
                         <label for="">
-                            لطفا چند ویژگی مورد نظر خود را برای طراحی جلد بنویسید. *
+                            لطفا چند ویژگی مورد نظر خود را برای طراحی جلد بنویسید. <span class="label-star">*</span>
                         </label>
 
                         <textarea name="coverDiscretion" id="" class="text-area"></textarea>
                     </div>
                 </div>
                 <div class="file-upload">
-                    <label for="">بارگذاری فایل *</label>
+                    <label for="">بارگذاری فایل <span class="label-star">*</span></label>
                     <input type="file" class="file" name="file"/>
-                    <img src="/assets/img/upload-igm.png" alt=""/>
                 </div>
 
             </div>
@@ -217,47 +221,48 @@
         <div class="info-fields">
             <div class="identify-info">
                 <div class="info-item fullname">
-                    <label for="">نام و نام خانوادگی *</label>
+                    <label for="">نام و نام خانوادگی <span class="label-star">*</span></label>
                     <input type="text" name="fullName">
                 </div>
                 <div class="info-item meli-code">
-                    <label for="">کد ملی *</label>
-                    <input type="text" name="nationalCode" id="کد ملی">
+                    <label for="">کد ملی <span class="label-star">*</span></label>
+                    <input type="text" name="nationalCode">
                 </div>
                 <div class="info-item phone-number" name="phoneNumber">
-                    <label for="">شماره همراه *</label>
+                    <label for="">شماره همراه <span class="label-star">*</span></label>
                     <input type="text" name="phoneNumber">
                 </div>
             </div>
 
             <div class="info-item living-info">
                 <div class="province info-item">
-                    <label for="">استان *</label>
+                    <label for="">استان <span class="label-star">*</span></label>
                     <select name="ostan" id="ostan">
+{{--getting ostan from database to send ajax--}}
                         @foreach($ostans as $ostan)
                             <option value="{{$ostan->id}}">{{$ostan->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="city info-item">
-                    <label for="">شهر *</label>
+                    <label for="">شهر <span class="label-star">*</span></label>
                     <select name="shahr" id="shahr">
-
+{{--if you are wondering why here is empty,it's becuse it works with ajax!--}}
                     </select>
                 </div>
                 <div class="postalcode info-item">
-                    <label for="">کد پستی *</label>
+                    <label for="">کد پستی <span class="label-star">*</span></label>
                     <input type="text" name="zipCode">
                 </div>
             </div>
             <div class="rules">
-                <input type="checkbox" id="rule" name="rule"/>
-                <label for="rule">قوانین و شرایط را مطالعه کرده و می پذیرم.</label>
+                <input type="checkbox" id="rule" name="rule" />
+                <label for="rule"><span class="rule-link">قوانین و شرایط</span> را مطالعه کرده و می پذیرم.</label>
             </div>
         </div>
         <div class="steps-btns">
             <button type="button" class="exite">خروج</button>
-            <button type="button" type="button" class="previous prev">مرحله قبلی</button>
+            <button type="button" class="previous prev">مرحله قبلی</button>
             <button type="submit" class="agree">موافقم</button>
         </div>
     </div>
@@ -413,7 +418,6 @@
         }
     }
 
-    // Function to remove an item from an array
     function removeFromArray(arr, value) {
         const index = arr.indexOf(value);
         if (index !== -1) {
@@ -455,18 +459,8 @@
         if (ID.trim() === "") {
             return ("کد ملی خالی است.");
         }
-
         if (!isValidIranianNationalId(ID)) {
             return ("کد ملی اشتباه است.");
-        }
-        if (role === "translator") {
-            if (addedIds_tr.includes(ID)) {
-                return ("این کد ملی قبلا وارد شده است.");
-            }
-        }else if(role === "writer"){
-            if (addedIds.includes(ID)) {
-                return ("این کد ملی قبلا وارد شده است.");
-            }
         }
         return false;
     }
