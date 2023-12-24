@@ -4,14 +4,16 @@
 }
 body {
   margin: 0;
+  background-image: url("../img/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50rem;
 }
 
 .container {
   width: 100%;
   height: 100vh;
-  background-image: url("../img/background.png");
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +32,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 50px 0 50px 0;
 }
 
 .right-poly {
@@ -42,25 +43,26 @@ body {
 .left-poly {
   position: absolute;
   left: 0;
-  width: 30%;
+  top: 100;
+  width: 20%;
 }
 
 .logo {
   display: flex;
-  justify-content: center;
-  margin-top: 1.56rem;
-  bottom: 5.87rem;
+  margin-bottom: 3rem;
 }
 
 .head {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .head h3 {
   color: #5a35b5;
   text-align: center;
+  margin: 0;
   font-family: IRANSansX;
   font-size: 2rem;
   font-style: normal;
@@ -71,6 +73,7 @@ body {
 }
 
 .head p {
+  margin: 0;
   color: #5754ff;
   text-align: center;
   font-family: IRANSansX;
@@ -85,16 +88,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 35%;
+  width: 50%;
 }
-@media (max-width: 375px) {
+@media (min-width: 280px) {
   .inps {
-    width: 75%;
+    width: 100%;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .inps {
-    width: 65%;
+    width: 50%;
   }
 }
 
@@ -118,6 +121,7 @@ body {
   border: none;
   background-color: inherit;
   border-bottom: 1px solid #4abce1;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.09);
   /* color: #E9F7FF; */
   text-align: right;
   font-family: IRANSansX;
@@ -125,6 +129,7 @@ body {
   font-style: normal;
   font-weight: 500;
   outline: none;
+  margin-bottom: 1.5rem;
 }
 
 .fill {
@@ -134,8 +139,10 @@ body {
   width: 100%;
 }
 
-.fill input {
+.fill .pass {
   width: 100%;
+  border-bottom: 1px solid #4abce1;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.09);
 }
 
 .inps input::placeholder {
@@ -154,18 +161,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 50%;
 }
 
 .eye {
   position: absolute;
   left: 0.5rem;
   cursor: pointer;
+  bottom: 50%;
 }
 
 .capcha {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 1.44rem;
   column-gap: 15px;
 }
@@ -233,4 +241,4 @@ body {
   display: none;
 }
 
-/*# sourceMappingURL=signup-3.css.map */
+/*# sourceMappingURL=login.css.map */
